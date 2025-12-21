@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Stream Deck Windows</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body class="font-display">
+    <div class="relative min-h-screen overflow-hidden">
+      <div class="pointer-events-none absolute inset-0 deck-shell"></div>
+      <div class="pointer-events-none absolute inset-0 deck-grid"></div>
+
+      <div class="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-8 lg:px-10">
+        <header
+          class="flex flex-wrap items-center justify-between gap-6 deck-entrance deck-stagger"
+          style="--deck-delay: 0.05s"
+        >
+          <div class="flex items-center gap-4">
+            <div class="deck-icon">
+              <span class="material-symbols-rounded text-[28px]">grid_view</span>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[color:var(--deck-muted)]">
+                Stream Deck
+              </p>
+              <h1 class="text-2xl font-semibold tracking-tight">Lanceur Windows</h1>
+              <p class="mt-1 text-sm text-[color:var(--deck-muted)]">
+                Controle local via Node.js + PNPM
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <button
+              class="deck-chip"
+              type="button"
+              data-theme-toggle
+              aria-pressed="false"
+            >
+              Mode sombre
+            </button>
+            <div class="deck-chip font-mono" data-status data-tone="ready" aria-live="polite">
+              Pret
+            </div>
+            <div
+              class="rounded-full bg-black/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--deck-muted)]"
+            >
+              Localhost
+            </div>
+          </div>
+        </header>
+
+        <main class="mt-10 flex-1">
+          <div
+            class="flex flex-wrap items-end justify-between gap-4 deck-entrance deck-stagger"
+            style="--deck-delay: 0.12s"
+          >
+            <div>
+              <h2 class="text-xl font-semibold">Actions rapides</h2>
+              <p class="mt-2 max-w-xl text-sm text-[color:var(--deck-muted)]">
+                Clique sur une tuile pour executer la commande sur ton systeme.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--deck-muted)]">
+              <span class="inline-flex h-2 w-2 rounded-full bg-[color:var(--deck-accent-2)]"></span>
+              API locale active
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <button
+              class="deck-tile deck-entrance deck-stagger"
+              style="--deck-delay: 0.2s"
+              type="button"
+              data-action="browser"
+              data-label="Navigateur"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
+                  Systeme
+                </span>
+                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
+                  arrow_outward
+                </span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="deck-icon">
+                  <span class="material-symbols-rounded text-[28px]">language</span>
+                </div>
+                <div>
+                  <p class="text-lg font-semibold">Ouvrir le navigateur</p>
+                  <p class="text-sm text-[color:var(--deck-muted)]">Lance la page par defaut</p>
+                </div>
+              </div>
+            </button>
+
+            <button
+              class="deck-tile deck-entrance deck-stagger"
+              style="--deck-delay: 0.26s"
+              type="button"
+              data-action="vscode"
+              data-label="VS Code"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
+                  Dev
+                </span>
+                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
+                  bolt
+                </span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="deck-icon alt">
+                  <span class="material-symbols-rounded text-[28px]">terminal</span>
+                </div>
+                <div>
+                  <p class="text-lg font-semibold">Ouvrir VS Code</p>
+                  <p class="text-sm text-[color:var(--deck-muted)]">Workspace local immediat</p>
+                </div>
+              </div>
+            </button>
+
+            <button
+              class="deck-tile deck-entrance deck-stagger"
+              style="--deck-delay: 0.32s"
+              type="button"
+              data-action="youtube"
+              data-label="YouTube"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
+                  Media
+                </span>
+                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
+                  play_arrow
+                </span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="deck-icon">
+                  <span class="material-symbols-rounded text-[28px]">smart_display</span>
+                </div>
+                <div>
+                  <p class="text-lg font-semibold">Lancer YouTube</p>
+                  <p class="text-sm text-[color:var(--deck-muted)]">Ouvre le site officiel</p>
+                </div>
+              </div>
+            </button>
+
+            <button
+              class="deck-tile deck-entrance deck-stagger"
+              style="--deck-delay: 0.38s"
+              type="button"
+              data-action="discord"
+              data-label="Discord"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
+                  Social
+                </span>
+                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
+                  forum
+                </span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="deck-icon alt">
+                  <span class="material-symbols-rounded text-[28px]">headphones</span>
+                </div>
+                <div>
+                  <p class="text-lg font-semibold">Ouvrir Discord</p>
+                  <p class="text-sm text-[color:var(--deck-muted)]">App native si installee</p>
+                </div>
+              </div>
+            </button>
+
+            <button
+              class="deck-tile deck-entrance deck-stagger"
+              style="--deck-delay: 0.44s"
+              type="button"
+              data-action="chatgpt"
+              data-label="ChatGPT"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
+                  IA
+                </span>
+                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
+                  auto_awesome
+                </span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="deck-icon">
+                  <span class="material-symbols-rounded text-[28px]">chat</span>
+                </div>
+                <div>
+                  <p class="text-lg font-semibold">Lancer ChatGPT</p>
+                  <p class="text-sm text-[color:var(--deck-muted)]">Acces rapide a chatgpt.com</p>
+                </div>
+              </div>
+            </button>
+          </div>
+        </main>
+
+        <footer
+          class="mt-10 flex flex-wrap items-center justify-between gap-4 text-xs text-[color:var(--deck-muted)] deck-entrance deck-stagger"
+          style="--deck-delay: 0.5s"
+        >
+          <span>API locale: POST /api/launch</span>
+          <span class="font-mono">Windows actions</span>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const statusEl = document.querySelector("[data-status]");
+      const themeToggle = document.querySelector("[data-theme-toggle]");
+      const actionButtons = Array.from(document.querySelectorAll("[data-action]"));
+
+      const rootEl = document.documentElement;
+      const storedTheme = localStorage.getItem("deck-theme");
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+      const applyTheme = (theme) => {
+        if (theme === "dark") {
+          rootEl.classList.add("dark");
+        } else {
+          rootEl.classList.remove("dark");
+        }
+      };
+
+      if (storedTheme === "dark" || storedTheme === "light") {
+        applyTheme(storedTheme);
+      } else {
+        applyTheme(mediaQuery.matches ? "dark" : "light");
+      }
+
+      const syncToggle = () => {
+        if (!themeToggle) return;
+        const isDark = rootEl.classList.contains("dark");
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.textContent = isDark ? "Mode clair" : "Mode sombre";
+      };
+
+      const setStatus = (text, tone = "ready") => {
+        if (!statusEl) return;
+        statusEl.textContent = text;
+        statusEl.dataset.tone = tone;
+      };
+
+      const launchAction = async (button) => {
+        const action = button.dataset.action;
+        const label = button.dataset.label || action;
+
+        button.disabled = true;
+        setStatus(`Lancement ${label}...`, "busy");
+
+        try {
+          const response = await fetch("/api/launch", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action }),
+          });
+
+          const result = await response.json();
+          if (!response.ok || !result.ok) {
+            throw new Error(result.error || "Launch failed");
+          }
+
+          setStatus(`${label} lance`, "success");
+        } catch (error) {
+          setStatus(`Erreur lancement ${label}`, "error");
+        } finally {
+          window.setTimeout(() => setStatus("Pret", "ready"), 2400);
+          button.disabled = false;
+        }
+      };
+
+      actionButtons.forEach((button) => {
+        button.addEventListener("click", () => launchAction(button));
+      });
+
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          rootEl.classList.toggle("dark");
+          localStorage.setItem(
+            "deck-theme",
+            rootEl.classList.contains("dark") ? "dark" : "light"
+          );
+          syncToggle();
+        });
+      }
+
+      syncToggle();
+
+      mediaQuery.addEventListener("change", (event) => {
+        const hasStoredTheme =
+          localStorage.getItem("deck-theme") === "dark" ||
+          localStorage.getItem("deck-theme") === "light";
+        if (!hasStoredTheme) {
+          applyTheme(event.matches ? "dark" : "light");
+          syncToggle();
+        }
+      });
+    </script>
+  </body>
+</html>
