@@ -4,21 +4,32 @@ const fs = require("fs");
 const { exec } = require("child_process");
 
 const app = express();
-const PORT = 3000;
+const PORT = 3721;
 
 app.use(express.json());
 
 const vscodeCandidates = [
   process.env.LOCALAPPDATA &&
-    path.join(process.env.LOCALAPPDATA, "Programs", "Microsoft VS Code", "Code.exe"),
+    path.join(
+      process.env.LOCALAPPDATA,
+      "Programs",
+      "Microsoft VS Code",
+      "Code.exe"
+    ),
   process.env.ProgramFiles &&
     path.join(process.env.ProgramFiles, "Microsoft VS Code", "Code.exe"),
   process.env["ProgramFiles(x86)"] &&
-    path.join(process.env["ProgramFiles(x86)"], "Microsoft VS Code", "Code.exe"),
+    path.join(
+      process.env["ProgramFiles(x86)"],
+      "Microsoft VS Code",
+      "Code.exe"
+    ),
 ].filter(Boolean);
 
 const resolveVscodeCommand = () => {
-  const existingPath = vscodeCandidates.find((candidate) => fs.existsSync(candidate));
+  const existingPath = vscodeCandidates.find((candidate) =>
+    fs.existsSync(candidate)
+  );
   if (existingPath) {
     return `cmd /c start "" "${existingPath}"`;
   }
@@ -28,7 +39,7 @@ const resolveVscodeCommand = () => {
 const ACTIONS = {
   browser: {
     label: "Navigateur",
-    command: 'cmd /c start "" "about:blank"',
+    command: 'cmd /c start "" "https://www.google.com"',
   },
   vscode: {
     label: "VS Code",
@@ -45,6 +56,15 @@ const ACTIONS = {
   chatgpt: {
     label: "ChatGPT",
     command: 'cmd /c start "" "https://chatgpt.com"',
+  },
+  googledrive: {
+    label: "Google Drive",
+    command: 'cmd /c start "" "https://drive.google.com"',
+  },
+  whatsapp: {
+    label: "WhatsApp",
+    command:
+      'cmd /c start "" explorer.exe "shell:AppsFolder\\5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App"',
   },
 };
 
@@ -76,7 +96,8 @@ app.post("/api/launch", async (req, res) => {
     return;
   }
 
-  const command = typeof entry.command === "function" ? entry.command() : entry.command;
+  const command =
+    typeof entry.command === "function" ? entry.command() : entry.command;
 
   try {
     await runCommand(command);
@@ -86,6 +107,6 @@ app.post("/api/launch", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });

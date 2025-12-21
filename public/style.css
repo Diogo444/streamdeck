@@ -484,6 +484,20 @@
   .dark .deck-icon.alt {
     box-shadow: 0 0 20px rgba(40, 242, 229, 0.45), inset 0 0 10px rgba(40, 242, 229, 0.35);
   }
+  .drive-icon {
+    background: linear-gradient(135deg, #1a73e8, #34a853 55%, #fbbc04 95%);
+  }
+  .dark .drive-icon {
+    box-shadow: 0 0 22px rgba(26, 115, 232, 0.45), inset 0 0 10px rgba(52, 168, 83, 0.35);
+  }
+  .drive-tile {
+    border-color: rgba(26, 115, 232, 0.2);
+    box-shadow: 0 20px 40px -28px rgba(26, 115, 232, 0.28);
+  }
+  .dark .drive-tile {
+    border-color: rgba(52, 168, 83, 0.35);
+    box-shadow: 0 24px 60px -34px rgba(26, 115, 232, 0.45);
+  }
   .deck-chip {
     display: inline-flex;
     align-items: center;
