@@ -1,365 +1,492 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
+<html class="h-full" lang="fr">
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Stream Deck Windows</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
-  </head>
-  <body class="font-display">
-    <div class="relative min-h-screen overflow-hidden">
-      <div class="pointer-events-none absolute inset-0 deck-shell"></div>
-      <div class="pointer-events-none absolute inset-0 deck-grid"></div>
+</head>
 
-      <div class="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-8 lg:px-10">
+<body
+    class="h-full font-display bg-gradient-to-br from-slate-950 via-slate-900 to-sky-900 text-white overflow-hidden selection:bg-sky-500/30 transition-colors duration-500">
+    <div class="flex h-full w-full flex-col relative">
+        <nav class="absolute left-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-6">
+            <button
+                class="group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 text-slate-400 shadow-xl shadow-black/20 hover:from-sky-900 hover:to-sky-700 hover:text-white hover:border-sky-500/50 hover:shadow-sky-500/20 transition-all duration-300 hover:scale-110 hover:-translate-y-1 aria-[selected=true]:from-sky-900 aria-[selected=true]:to-sky-700 aria-[selected=true]:text-white aria-[selected=true]:border-sky-500/50 aria-[selected=true]:shadow-sky-500/20 aria-[selected=true]:scale-110 aria-[selected=true]:-translate-y-1"
+                type="button" data-tab-target="#section-chat" role="tab" aria-controls="section-chat"
+                aria-selected="true" title="Chat">
+                <span
+                    class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">chat_bubble</span>
+                <span
+                    class="absolute left-full ml-4 rounded-lg bg-slate-900/90 border border-white/10 px-3 py-1.5 text-sm font-medium text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 pointer-events-none whitespace-nowrap">Chat</span>
+            </button>
+            <button
+                class="group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 text-slate-400 shadow-xl shadow-black/20 hover:from-sky-900 hover:to-sky-700 hover:text-white hover:border-sky-500/50 hover:shadow-sky-500/20 transition-all duration-300 hover:scale-110 hover:-translate-y-1 aria-[selected=true]:from-sky-900 aria-[selected=true]:to-sky-700 aria-[selected=true]:text-white aria-[selected=true]:border-sky-500/50 aria-[selected=true]:shadow-sky-500/20 aria-[selected=true]:scale-110 aria-[selected=true]:-translate-y-1"
+                type="button" data-tab-target="#section-apps" role="tab" aria-controls="section-apps"
+                aria-selected="false" title="Apps">
+                <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">apps</span>
+                <span
+                    class="absolute left-full ml-4 rounded-lg bg-slate-900/90 border border-white/10 px-3 py-1.5 text-sm font-medium text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 pointer-events-none whitespace-nowrap">Apps</span>
+            </button>
+            <button
+                class="group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 text-slate-400 shadow-xl shadow-black/20 hover:from-sky-900 hover:to-sky-700 hover:text-white hover:border-sky-500/50 hover:shadow-sky-500/20 transition-all duration-300 hover:scale-110 hover:-translate-y-1 aria-[selected=true]:from-sky-900 aria-[selected=true]:to-sky-700 aria-[selected=true]:text-white aria-[selected=true]:border-sky-500/50 aria-[selected=true]:shadow-sky-500/20 aria-[selected=true]:scale-110 aria-[selected=true]:-translate-y-1"
+                type="button" data-tab-target="#section-ai" role="tab" aria-controls="section-ai" aria-selected="false"
+                title="AI">
+                <span
+                    class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">smart_toy</span>
+                <span
+                    class="absolute left-full ml-4 rounded-lg bg-slate-900/90 border border-white/10 px-3 py-1.5 text-sm font-medium text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 pointer-events-none whitespace-nowrap">AI</span>
+            </button>
+            <button
+                class="group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 text-slate-400 shadow-xl shadow-black/20 hover:from-sky-900 hover:to-sky-700 hover:text-white hover:border-sky-500/50 hover:shadow-sky-500/20 transition-all duration-300 hover:scale-110 hover:-translate-y-1 aria-[selected=true]:from-sky-900 aria-[selected=true]:to-sky-700 aria-[selected=true]:text-white aria-[selected=true]:border-sky-500/50 aria-[selected=true]:shadow-sky-500/20 aria-[selected=true]:scale-110 aria-[selected=true]:-translate-y-1"
+                type="button" data-tab-target="#section-dev" role="tab" aria-controls="section-dev"
+                aria-selected="false" title="Development">
+                <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">code</span>
+                <span
+                    class="absolute left-full ml-4 rounded-lg bg-slate-900/90 border border-white/10 px-3 py-1.5 text-sm font-medium text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 pointer-events-none whitespace-nowrap">Dev</span>
+            </button>
+            <div class="h-px w-8 bg-white/10 mx-auto my-1"></div>
+            <button
+                class="group relative flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 text-slate-400 shadow-xl shadow-black/20 hover:from-sky-900 hover:to-sky-700 hover:text-white hover:border-sky-500/50 hover:shadow-sky-500/20 transition-all duration-300 hover:scale-110 hover:-translate-y-1 aria-[selected=true]:from-sky-900 aria-[selected=true]:to-sky-700 aria-[selected=true]:text-white aria-[selected=true]:border-sky-500/50 aria-[selected=true]:shadow-sky-500/20 aria-[selected=true]:scale-110 aria-[selected=true]:-translate-y-1"
+                type="button" data-tab-target="#section-media" role="tab" aria-controls="section-media"
+                aria-selected="false" title="Media">
+                <span
+                    class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">play_circle</span>
+                <span
+                    class="absolute left-full ml-4 rounded-lg bg-slate-900/90 border border-white/10 px-3 py-1.5 text-sm font-medium text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 pointer-events-none whitespace-nowrap">Media</span>
+            </button>
+        </nav>
         <header
-          class="flex flex-wrap items-center justify-between gap-6 deck-entrance deck-stagger"
-          style="--deck-delay: 0.05s"
-        >
-          <div class="flex items-center gap-4">
-            <div class="deck-icon">
-              <span class="material-symbols-rounded text-[28px]">grid_view</span>
+            class="flex h-20 shrink-0 items-center justify-between px-8 bg-transparent z-10 w-full max-w-7xl mx-auto backdrop-blur-sm md:backdrop-blur-none">
+            <div class="flex items-center gap-4 pl-2 md:pl-28 transition-all">
+                <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/20 border border-sky-500/30 shadow-[0_0_15px_rgba(14,165,233,0.3)]">
+                    <span class="material-symbols-outlined text-2xl text-sky-400">grid_view</span>
+                </div>
+                <div>
+                    <h1
+                        class="header-title text-xl font-bold leading-tight tracking-[-0.015em] text-white drop-shadow-sm transition-colors">
+                        Stream
+                        Deck</h1>
+                    <p class="header-subtitle text-xs font-medium text-sky-400/80 transition-colors">Pro Profile</p>
+                </div>
             </div>
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[color:var(--deck-muted)]">
-                Stream Deck
-              </p>
-              <h1 class="text-2xl font-semibold tracking-tight">Lanceur Windows</h1>
-              <p class="mt-1 text-sm text-[color:var(--deck-muted)]">
-                Controle local via Node.js + PNPM
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center gap-3">
-            <button
-              class="deck-chip"
-              type="button"
-              data-theme-toggle
-              aria-pressed="false"
-            >
-              Mode sombre
-            </button>
-            <div class="deck-chip font-mono" data-status data-tone="ready" aria-live="polite">
-              Pret
-            </div>
-            <div
-              class="rounded-full bg-black/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--deck-muted)]"
-            >
-              Localhost
-            </div>
-          </div>
+            <label
+                class="theme-toggle inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-slate-300 shadow-sm backdrop-blur transition-all hover:border-sky-400/50 hover:text-white cursor-pointer">
+                <input class="sr-only peer" type="checkbox" data-theme-toggle />
+                <span class="peer-checked:text-white transition-colors" data-theme-label>Mode sombre</span>
+                <span
+                    class="relative inline-flex h-5 w-10 items-center rounded-full border border-white/10 bg-white/10 p-0.5 transition-all peer-checked:border-sky-400/60 peer-checked:bg-sky-500/20"
+                    aria-hidden="true">
+                    <span
+                        class="absolute left-0.5 h-3.5 w-3.5 rounded-full bg-white shadow-md transition-transform duration-300 ease-out peer-checked:translate-x-4"></span>
+                </span>
+            </label>
         </header>
+        <div class="flex flex-1 overflow-hidden relative">
+            <main
+                class="flex-1 overflow-y-auto no-scrollbar pl-4 pr-4 md:pl-40 md:pr-12 pb-0 scroll-smooth snap-y snap-mandatory"
+                id="main-content">
+                <div class="max-w-6xl mx-auto h-full">
+                    <section class="h-full snap-start snap-always flex flex-col justify-center" id="section-chat"
+                        data-tab-panel role="tabpanel" aria-label="Chat et Social">
+                        <div
+                            class="section-card bg-slate-900/40 rounded-[2.5rem] p-10 border border-white/10 backdrop-blur-md shadow-2xl transition-colors">
+                            <h2
+                                class="section-title text-3xl font-bold text-white mb-10 flex items-center gap-4 transition-colors">
+                                <span
+                                    class="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/5 border border-green-500/20 text-green-400 shadow-lg shadow-green-900/20">
+                                    <span class="material-symbols-outlined">chat_bubble</span>
+                                </span>
+                                Chat &amp; Social
+                            </h2>
+                            <div
+                                class="section-grid no-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                                <button class="action-btn action-btn-indigo" type="button" data-action="discord"
+                                    data-label="Discord">
+                                    <span
+                                        class="action-btn-icon text-indigo-400 material-symbols-outlined">headphones</span>
+                                    <p class="action-btn-label">Discord</p>
+                                </button>
 
-        <main class="mt-10 flex-1">
-          <div
-            class="flex flex-wrap items-end justify-between gap-4 deck-entrance deck-stagger"
-            style="--deck-delay: 0.12s"
-          >
-            <div>
-              <h2 class="text-xl font-semibold">Actions rapides</h2>
-              <p class="mt-2 max-w-xl text-sm text-[color:var(--deck-muted)]">
-                Clique sur une tuile pour executer la commande sur ton systeme.
-              </p>
-            </div>
-            <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--deck-muted)]">
-              <span class="inline-flex h-2 w-2 rounded-full bg-[color:var(--deck-accent-2)]"></span>
-              API locale active
-            </div>
-          </div>
+                                <button class="action-btn action-btn-green" type="button" data-action="whatsapp"
+                                    data-label="WhatsApp">
+                                    <span class="action-btn-icon text-green-500 material-symbols-outlined">chat</span>
+                                    <p class="action-btn-label">WhatsApp</p>
+                                </button>
 
-          <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <button
-              class="deck-tile deck-entrance deck-stagger"
-              style="--deck-delay: 0.2s"
-              type="button"
-              data-action="browser"
-              data-label="Navigateur"
-            >
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
-                  Systeme
-                </span>
-                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
-                  arrow_outward
-                </span>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="deck-icon">
-                  <span class="material-symbols-rounded text-[28px]">language</span>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="h-full snap-start snap-always flex flex-col justify-center" id="section-apps"
+                        data-tab-panel role="tabpanel" aria-label="Applications">
+                        <div
+                            class="section-card bg-slate-900/40 rounded-[2.5rem] p-10 border border-white/10 backdrop-blur-md shadow-2xl transition-colors">
+                            <h2
+                                class="section-title text-3xl font-bold text-white mb-10 flex items-center gap-4 transition-colors">
+                                <span
+                                    class="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-500/5 border border-orange-500/20 text-orange-400 shadow-lg shadow-orange-900/20">
+                                    <span class="material-symbols-outlined">apps</span>
+                                </span>
+                                Applications
+                            </h2>
+                            <div
+                                class="section-grid no-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                                <button class="action-btn action-btn-sky" type="button" data-action="browser"
+                                    data-label="Navigateur">
+                                    <span class="action-btn-icon text-sky-400 material-symbols-outlined">language</span>
+                                    <p class="action-btn-label">Navigateur</p>
+                                </button>
+                                <button class="action-btn action-btn-amber" type="button" data-action="googledrive"
+                                    data-label="Google Drive">
+                                    <span
+                                        class="action-btn-icon text-amber-400 material-symbols-outlined">cloud_sync</span>
+                                    <p class="action-btn-label">Google Drive</p>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="h-full snap-start snap-always flex flex-col justify-center" id="section-ai"
+                        data-tab-panel role="tabpanel" aria-label="IA">
+                        <div
+                            class="section-card bg-slate-900/40 rounded-[2.5rem] p-10 border border-white/10 backdrop-blur-md shadow-2xl transition-colors">
+                            <h2
+                                class="section-title text-3xl font-bold text-white mb-10 flex items-center gap-4 transition-colors">
+                                <span
+                                    class="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-fuchsia-500/5 border border-purple-500/20 text-purple-400 shadow-lg shadow-purple-900/20">
+                                    <span class="material-symbols-outlined">smart_toy</span>
+                                </span>
+                                Artificial Intelligence
+                            </h2>
+                            <div
+                                class="section-grid no-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                                <button class="action-btn action-btn-emerald" type="button" data-action="chatgpt"
+                                    data-label="ChatGPT">
+                                    <span
+                                        class="action-btn-icon text-emerald-400 material-symbols-outlined">auto_awesome</span>
+                                    <p class="action-btn-label">ChatGPT</p>
+                                </button>
+                                <button class="action-btn action-btn-emerald" type="button" data-action="Gemini"
+                                    data-label="Gemini">
+                                    <span
+                                        class="action-btn-icon text-emerald-400 material-symbols-outlined">auto_awesome</span>
+                                    <p class="action-btn-label">Gemini</p>
+                                </button>
+                                
+                            </div>
+                        </div>
+                    </section>
+                    <section class="h-full snap-start snap-always flex flex-col justify-center" id="section-dev"
+                        data-tab-panel role="tabpanel" aria-label="Development">
+                        <div
+                            class="section-card bg-slate-900/40 rounded-[2.5rem] p-10 border border-white/10 backdrop-blur-md shadow-2xl transition-colors">
+                            <h2
+                                class="section-title text-3xl font-bold text-white mb-10 flex items-center gap-4 transition-colors">
+                                <span
+                                    class="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-amber-500/5 border border-yellow-500/20 text-yellow-400 shadow-lg shadow-yellow-900/20">
+                                    <span class="material-symbols-outlined">code</span>
+                                </span>
+                                Development
+                            </h2>
+                            <div
+                                class="section-grid no-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                                <button class="action-btn action-btn-sky" type="button" data-action="vscode"
+                                    data-label="VS Code">
+                                    <span class="action-btn-icon text-sky-400 material-symbols-outlined">terminal</span>
+                                    <p class="action-btn-label">VS Code</p>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="h-full snap-start snap-always flex flex-col justify-center" id="section-media"
+                        data-tab-panel role="tabpanel" aria-label="Media">
+                        <div
+                            class="section-card bg-slate-900/40 rounded-[2.5rem] p-10 border border-white/10 backdrop-blur-md shadow-2xl transition-colors">
+                            <h2
+                                class="section-title text-3xl font-bold text-white mb-10 flex items-center gap-4 transition-colors">
+                                <span
+                                    class="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500/20 to-rose-500/5 border border-red-500/20 text-red-400 shadow-lg shadow-red-900/20">
+                                    <span class="material-symbols-outlined">play_circle</span>
+                                </span>
+                                Media &amp; Stream
+                            </h2>
+                            <div
+                                class="section-grid no-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                                <button class="action-btn action-btn-red" type="button" data-action="youtube"
+                                    data-label="YouTube">
+                                    <span
+                                        class="action-btn-icon text-red-500 material-symbols-outlined">smart_display</span>
+                                    <p class="action-btn-label">YouTube</p>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div>
-                  <p class="text-lg font-semibold">Ouvrir le navigateur</p>
-                  <p class="text-sm text-[color:var(--deck-muted)]">Lance la page par defaut</p>
-                </div>
-              </div>
-            </button>
-
-            <button
-              class="deck-tile deck-entrance deck-stagger"
-              style="--deck-delay: 0.26s"
-              type="button"
-              data-action="vscode"
-              data-label="VS Code"
-            >
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
-                  Dev
-                </span>
-                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
-                  bolt
-                </span>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="deck-icon alt">
-                  <span class="material-symbols-rounded text-[28px]">terminal</span>
-                </div>
-                <div>
-                  <p class="text-lg font-semibold">Ouvrir VS Code</p>
-                  <p class="text-sm text-[color:var(--deck-muted)]">Workspace local immediat</p>
-                </div>
-              </div>
-            </button>
-
-            <button
-              class="deck-tile deck-entrance deck-stagger"
-              style="--deck-delay: 0.32s"
-              type="button"
-              data-action="youtube"
-              data-label="YouTube"
-            >
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
-                  Media
-                </span>
-                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
-                  play_arrow
-                </span>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="deck-icon">
-                  <span class="material-symbols-rounded text-[28px]">smart_display</span>
-                </div>
-                <div>
-                  <p class="text-lg font-semibold">Lancer YouTube</p>
-                  <p class="text-sm text-[color:var(--deck-muted)]">Ouvre le site officiel</p>
-                </div>
-              </div>
-            </button>
-
-            <button
-              class="deck-tile deck-entrance deck-stagger"
-              style="--deck-delay: 0.38s"
-              type="button"
-              data-action="discord"
-              data-label="Discord"
-            >
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
-                  Social
-                </span>
-                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
-                  forum
-                </span>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="deck-icon alt">
-                  <span class="material-symbols-rounded text-[28px]">headphones</span>
-                </div>
-                <div>
-                  <p class="text-lg font-semibold">Ouvrir Discord</p>
-                  <p class="text-sm text-[color:var(--deck-muted)]">App native si installee</p>
-                </div>
-              </div>
-            </button>
-
-            <button
-              class="deck-tile deck-entrance deck-stagger"
-              style="--deck-delay: 0.44s"
-              type="button"
-              data-action="chatgpt"
-              data-label="ChatGPT"
-            >
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
-                  IA
-                </span>
-                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
-                  auto_awesome
-                </span>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="deck-icon">
-                  <span class="material-symbols-rounded text-[28px]">chat</span>
-                </div>
-                <div>
-                  <p class="text-lg font-semibold">Lancer ChatGPT</p>
-                  <p class="text-sm text-[color:var(--deck-muted)]">Acces rapide a chatgpt.com</p>
-                </div>
-              </div>
-            </button>
-            <button
-              class="deck-tile deck-entrance deck-stagger drive-tile"
-              style="--deck-delay: 0.5s"
-              type="button"
-              data-action="googledrive"
-              data-label="Google Drive"
-            >
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
-                  Cloud
-                </span>
-                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
-                  cloud
-                </span>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="deck-icon drive-icon">
-                  <span class="material-symbols-rounded text-[28px]">cloud_sync</span>
-                </div>
-                <div>
-                  <p class="text-lg font-semibold">Lancer Google Drive</p>
-                  <p class="text-sm text-[color:var(--deck-muted)]">Acces rapide a drive.google.com</p>
-                </div>
-              </div>
-            </button>
-            <button
-              class="deck-tile deck-entrance deck-stagger"
-              style="--deck-delay: 0.56s"
-              type="button"
-              data-action="whatsapp"
-              data-label="WhatsApp"
-            >
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--deck-muted)]">
-                  Social
-                </span>
-                <span class="material-symbols-rounded text-[20px] text-[color:var(--deck-muted)]">
-                  chat
-                </span>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="deck-icon alt">
-                  <span class="material-symbols-rounded text-[28px]">chat</span>
-                </div>
-                <div>
-                  <p class="text-lg font-semibold">Ouvrir WhatsApp</p>
-                  <p class="text-sm text-[color:var(--deck-muted)]">App native si installee</p>
-                </div>
-              </div>
-            </button>
-          </div>
-        </main>
-
-        <footer
-          class="mt-10 flex flex-wrap items-center justify-between gap-4 text-xs text-[color:var(--deck-muted)] deck-entrance deck-stagger"
-          style="--deck-delay: 0.5s"
-        >
-          <span>API locale: POST /api/launch</span>
-          <span class="font-mono">Windows actions</span>
-        </footer>
-      </div>
+            </main>
+        </div>
     </div>
 
     <script>
-      const statusEl = document.querySelector("[data-status]");
-      const themeToggle = document.querySelector("[data-theme-toggle]");
-      const actionButtons = Array.from(document.querySelectorAll("[data-action]"));
+        const statusEl = document.querySelector("[data-status]");
+        const themeToggle = document.querySelector("[data-theme-toggle]");
+        const themeLabel = document.querySelector("[data-theme-label]");
+        const actionButtons = Array.from(document.querySelectorAll("[data-action]"));
+        const tabButtons = Array.from(document.querySelectorAll("[data-tab-target]"));
+        const tabPanels = Array.from(document.querySelectorAll("[data-tab-panel]"));
+        const mainContent = document.getElementById("main-content");
+        const scrollAreas = Array.from(document.querySelectorAll(".section-grid"));
+        const SCROLL_SWITCH_THRESHOLD = 260;
+        const SCROLL_SWITCH_COOLDOWN_MS = 450;
+        const EDGE_EPSILON = 1;
+        const wheelOverflowState = new WeakMap();
+        let globalSwitchLockUntil = 0;
 
-      const rootEl = document.documentElement;
-      const storedTheme = localStorage.getItem("deck-theme");
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const rootEl = document.documentElement;
+        const bodyEl = document.body;
+        const storedTheme = localStorage.getItem("deck-theme");
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-      const applyTheme = (theme) => {
-        if (theme === "dark") {
-          rootEl.classList.add("dark");
+        const applyTheme = (theme) => {
+            if (theme === "dark") {
+                rootEl.classList.add("dark");
+                rootEl.classList.remove("light");
+                bodyEl.classList.remove("bg-gradient-to-br", "from-slate-100", "via-slate-50", "to-sky-100", "text-slate-900");
+                bodyEl.classList.add("bg-gradient-to-br", "from-slate-950", "via-slate-900", "to-sky-900", "text-white");
+            } else {
+                rootEl.classList.remove("dark");
+                rootEl.classList.add("light");
+                bodyEl.classList.remove("bg-gradient-to-br", "from-slate-950", "via-slate-900", "to-sky-900", "text-white");
+                bodyEl.classList.add("bg-gradient-to-br", "from-slate-100", "via-slate-50", "to-sky-100", "text-slate-900");
+            }
+        };
+
+        // Initialisation du thème
+        if (storedTheme === "dark" || storedTheme === "light") {
+            applyTheme(storedTheme);
         } else {
-          rootEl.classList.remove("dark");
+            applyTheme(mediaQuery.matches ? "dark" : "light");
         }
-      };
 
-      if (storedTheme === "dark" || storedTheme === "light") {
-        applyTheme(storedTheme);
-      } else {
-        applyTheme(mediaQuery.matches ? "dark" : "light");
-      }
+        const syncToggle = () => {
+            if (!themeToggle) return;
+            const isDark = rootEl.classList.contains("dark");
+            themeToggle.checked = !isDark; // Inversé: checked = mode clair
+            if (themeLabel) {
+                themeLabel.textContent = isDark ? "Mode sombre" : "Mode clair";
+            }
+        };
 
-      const syncToggle = () => {
-        if (!themeToggle) return;
-        const isDark = rootEl.classList.contains("dark");
-        themeToggle.setAttribute("aria-pressed", String(isDark));
-        themeToggle.textContent = isDark ? "Mode clair" : "Mode sombre";
-      };
+        const setStatus = (text, tone = "ready") => {
+            if (!statusEl) return;
+            statusEl.textContent = text;
+            statusEl.dataset.tone = tone;
+        };
 
-      const setStatus = (text, tone = "ready") => {
-        if (!statusEl) return;
-        statusEl.textContent = text;
-        statusEl.dataset.tone = tone;
-      };
+        const launchAction = async (button) => {
+            const action = button.dataset.action;
+            const label = button.dataset.label || action;
 
-      const launchAction = async (button) => {
-        const action = button.dataset.action;
-        const label = button.dataset.label || action;
+            button.disabled = true;
+            setStatus(`Lancement ${label}...`, "busy");
 
-        button.disabled = true;
-        setStatus(`Lancement ${label}...`, "busy");
+            try {
+                const response = await fetch("/api/launch", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ action }),
+                });
 
-        try {
-          const response = await fetch("/api/launch", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ action }),
-          });
+                const result = await response.json();
+                if (!response.ok || !result.ok) {
+                    throw new Error(result.error || "Launch failed");
+                }
 
-          const result = await response.json();
-          if (!response.ok || !result.ok) {
-            throw new Error(result.error || "Launch failed");
-          }
+                setStatus(`${label} lance`, "success");
+            } catch (error) {
+                setStatus(`Erreur lancement ${label}`, "error");
+            } finally {
+                window.setTimeout(() => setStatus("Pret", "ready"), 2400);
+                button.disabled = false;
+            }
+        };
 
-          setStatus(`${label} lance`, "success");
-        } catch (error) {
-          setStatus(`Erreur lancement ${label}`, "error");
-        } finally {
-          window.setTimeout(() => setStatus("Pret", "ready"), 2400);
-          button.disabled = false;
-        }
-      };
+        const normalizeTarget = (target) =>
+            target && target.startsWith("#") ? target : `#${target}`;
 
-      actionButtons.forEach((button) => {
-        button.addEventListener("click", () => launchAction(button));
-      });
+        const setActiveTab = (targetId, shouldScroll) => {
+            const normalized = normalizeTarget(targetId);
+            if (!normalized) return;
+            tabButtons.forEach((button) => {
+                const isActive = button.dataset.tabTarget === normalized;
+                button.setAttribute("aria-selected", String(isActive));
+            });
 
-      if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-          rootEl.classList.toggle("dark");
-          localStorage.setItem(
-            "deck-theme",
-            rootEl.classList.contains("dark") ? "dark" : "light"
-          );
-          syncToggle();
+            if (shouldScroll) {
+                const panel = document.querySelector(normalized);
+                if (panel) {
+                    panel.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }
+        };
+
+        const getActiveTabIndex = () => {
+            const activeButton = tabButtons.find(
+                (button) => button.getAttribute("aria-selected") === "true"
+            );
+            if (!activeButton) return 0;
+            const normalized = normalizeTarget(activeButton.dataset.tabTarget);
+            return tabPanels.findIndex((panel) => `#${panel.id}` === normalized);
+        };
+
+        const switchTabByOffset = (offset) => {
+            if (!tabPanels.length) return;
+            const currentIndex = getActiveTabIndex();
+            if (currentIndex === -1) return;
+            const nextIndex = Math.max(0, Math.min(tabPanels.length - 1, currentIndex + offset));
+            if (nextIndex === currentIndex) return;
+            setActiveTab(`#${tabPanels[nextIndex].id}`, true);
+        };
+
+        const getWheelDeltaPixels = (event) => {
+            let delta = event.deltaY;
+            if (event.deltaMode === 1) {
+                delta *= 16; // DOM_DELTA_LINE -> approx pixels
+            } else if (event.deltaMode === 2) {
+                delta *= window.innerHeight; // DOM_DELTA_PAGE
+            }
+            return delta;
+        };
+
+        actionButtons.forEach((button) => {
+            button.addEventListener("click", () => launchAction(button));
         });
-      }
 
-      syncToggle();
+        scrollAreas.forEach((area) => {
+            area.addEventListener(
+                "wheel",
+                (event) => {
+                    // Ne pas casser le zoom navigateur (Ctrl + molette).
+                    if (event.ctrlKey) return;
 
-      mediaQuery.addEventListener("change", (event) => {
-        const hasStoredTheme =
-          localStorage.getItem("deck-theme") === "dark" ||
-          localStorage.getItem("deck-theme") === "light";
-        if (!hasStoredTheme) {
-          applyTheme(event.matches ? "dark" : "light");
-          syncToggle();
+                    const deltaY = getWheelDeltaPixels(event);
+                    if (deltaY === 0) return;
+
+                    const direction = deltaY > 0 ? 1 : -1;
+                    const maxScrollTop = Math.max(0, area.scrollHeight - area.clientHeight);
+                    const canScrollUp = area.scrollTop > EDGE_EPSILON;
+                    const canScrollDown = area.scrollTop < maxScrollTop - EDGE_EPSILON;
+                    const canScrollInDirection = direction < 0 ? canScrollUp : canScrollDown;
+
+                    const state = wheelOverflowState.get(area) || { sum: 0, lastDir: 0 };
+
+                    if (canScrollInDirection) {
+                        // Priorité au scroll interne: on laisse le navigateur scroller la grille.
+                        state.sum = 0;
+                        state.lastDir = 0;
+                        wheelOverflowState.set(area, state);
+                        event.stopPropagation();
+                        return;
+                    }
+
+                    // Au bord (top/bottom): on bloque le scroll global et on accumule le "surplus".
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    const now = performance.now();
+                    if (now < globalSwitchLockUntil) {
+                        state.sum = 0;
+                        state.lastDir = 0;
+                        wheelOverflowState.set(area, state);
+                        return;
+                    }
+
+                    if (state.lastDir !== direction) {
+                        state.sum = 0;
+                    }
+
+                    state.sum += Math.abs(deltaY);
+                    state.lastDir = direction;
+
+                    if (state.sum >= SCROLL_SWITCH_THRESHOLD) {
+                        switchTabByOffset(direction > 0 ? 1 : -1);
+                        state.sum = 0;
+                        state.lastDir = 0;
+                        globalSwitchLockUntil = now + SCROLL_SWITCH_COOLDOWN_MS;
+                    }
+
+                    wheelOverflowState.set(area, state);
+                },
+                { passive: false }
+            );
+        });
+
+        if (themeToggle) {
+            themeToggle.addEventListener("change", () => {
+                const newTheme = themeToggle.checked ? "light" : "dark";
+                applyTheme(newTheme);
+                localStorage.setItem("deck-theme", newTheme);
+                syncToggle();
+            });
         }
-      });
+
+        syncToggle();
+
+        mediaQuery.addEventListener("change", (event) => {
+            const hasStoredTheme =
+                localStorage.getItem("deck-theme") === "dark" ||
+                localStorage.getItem("deck-theme") === "light";
+            if (!hasStoredTheme) {
+                applyTheme(event.matches ? "dark" : "light");
+                syncToggle();
+            }
+        });
+
+        tabButtons.forEach((button) => {
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                setActiveTab(button.dataset.tabTarget, true);
+            });
+        });
+
+        window.addEventListener("keydown", (event) => {
+            if (!event.ctrlKey) return;
+            if (event.key === "ArrowDown") {
+                event.preventDefault();
+                switchTabByOffset(1);
+            } else if (event.key === "ArrowUp") {
+                event.preventDefault();
+                switchTabByOffset(-1);
+            }
+        });
+
+        if (mainContent && tabPanels.length) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    const visible = entries
+                        .filter((entry) => entry.isIntersecting)
+                        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+                    if (!visible.length) return;
+                    setActiveTab(`#${visible[0].target.id}`, false);
+                },
+                { root: mainContent, threshold: [0.55, 0.75] }
+            );
+
+            tabPanels.forEach((panel) => observer.observe(panel));
+        }
+
+        if (window.location.hash && document.querySelector(window.location.hash)) {
+            setActiveTab(window.location.hash, true);
+        } else if (tabPanels[0]) {
+            setActiveTab(`#${tabPanels[0].id}`, false);
+        }
     </script>
-  </body>
+
+</body>
+
 </html>

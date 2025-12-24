@@ -57,6 +57,10 @@ const ACTIONS = {
     label: "ChatGPT",
     command: 'cmd /c start "" "https://chatgpt.com"',
   },
+  gemini: {
+    label: "Gemini",
+    command: 'cmd /c start "" "https://gemini.google.com/app"',
+  },
   googledrive: {
     label: "Google Drive",
     command: 'cmd /c start "" "https://drive.google.com"',
